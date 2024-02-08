@@ -111,7 +111,7 @@ const argParser = new ArgumentParser({
       help: 'Print mask and exit.',
     },
   },
-].forEach(({ flags, opts }) => argParser.add_argument(...flags, opts));
+].forEach((item) => argParser.add_argument(item));
 
 // Simple string stream buffer + stdout flush at once
 let outBuffer = [];
