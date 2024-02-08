@@ -335,7 +335,7 @@ function MatrixRain(opts) {
           reject(err);
         }
         const maskStrip = strip(render).split('\n');
-        const mask = maskStrip.slice(0, mask.length - 1);
+        const mask = maskStrip.slice(0, maskStrip.length - 1);
         maskWidth = mask[0].length;
         maskHeight = mask.length;
         maskBlankChar = maskInverted ? '#' : ' ';
