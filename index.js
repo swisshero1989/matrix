@@ -233,7 +233,7 @@ function MatrixRain(opts) {
 
   function makeDroplet(col) {
     return {
-      col,
+      col: col,
       alive: 0,
       curRow: rand(0, numRows),
       height: rand(numRows / 2, numRows),
