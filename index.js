@@ -275,7 +275,9 @@ function MatrixRain(opts) {
     // Only output if in viewport
     if (row >= 0 && row < nextNumRows && col >= 0 && col < nextNumCols) {
       if (transpose) {
-        [col, row] = [row, col];
+        const tmpRow = row;
+        row = col;
+        col = tmpRow;
       }
       const pos = ansi.cursorPos(row, col);
       if (mask) {
