@@ -1,16 +1,16 @@
-# Matrix Rain
+# Matrix Rain for legacy Node versions
 
 The famous Matrix rain effect of falling green characters in a terminal with node.
 
 ## Installation
 
-```
+"""
 npm install -g matrix-rain
-```
+"""
 
 ## Usage
 
-```
+"""
 usage: matrix-rain [-h] [-v] [-d {h,v}]
                 [-c {green,red,blue,yellow,magenta,cyan,white}]
                 [-k {ascii,binary,braille,emoji,katakana}] [-f FILEPATH]
@@ -29,7 +29,7 @@ Optional arguments:
   -f, --file-path FILEPATH
                         Read characters from a file instead of random
                         characters from char-range
-```
+"""
 ## Screenshots
 
 ![Vertical Matrix](https://media.giphy.com/media/NA5S7F2dikADu/giphy.gif)
