@@ -302,8 +302,8 @@ function MatrixRain(opts) {
     const ansiColor =
       ansi.colors['fg${color.charAt(0).toUpperCase()}${color.substr(1)}']();
 
-    for (const droplets of colDroplets) {
-      for (const droplet of droplets) {
+    colDroplets.forEach((droplet)=> {
+      droplets.forEach((droplet)=>{
         const { curRow, col: curCol, height } = droplet;
         droplet.alive++;
 
@@ -318,8 +318,8 @@ function MatrixRain(opts) {
           // reset droplet
           Object.assign(droplet, makeDroplet(droplet.col), { curRow: 0 });
         }
-      }
-    }
+      });
+    });
 
     flush();
   }
