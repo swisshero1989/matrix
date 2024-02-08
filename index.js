@@ -172,9 +172,7 @@ function MatrixRain(opts) {
     }
 
     computeMask().then((mask) => {
-      for (const r in [(0).maskOffsetRow]) {
-        console.log('');
-      }
+      [(0).maskOffsetRow].forEach(() => console.log(''));
       mask.forEach((row, i) => {
         console.log(' '.repeat(maskOffsetCol), row);
       });
