@@ -114,7 +114,7 @@ const argParser = new ArgumentParser({
 ].forEach((item) => argParser.add_argument(item));
 
 // Simple string stream buffer + stdout flush at once
-let outBuffer = new Array();
+const outBuffer = new Array();
 function write(chars) {
   return outBuffer.push(chars);
 }
