@@ -249,30 +249,31 @@ function MatrixRain(opts) {
 
     if (maskConf) {
       maskConf.width = numCols;
-      maskConf.height = numRows * fontRatio;
+      maskConf.height = nextNumRows * fontRatio;
       computeMask().then((mask) => (mask = mask));
     }
 
     // transpose for direction
     if (transpose) {
-      [numCols, numRows] = [numRows, numCols];
+      nextNumRows = numCols;
+      nextNumCols = numRows;
     }
 
     // Create droplets per column
     // add/remove droplets to match column size
-    if (numCols > colDroplets.length) {
-      for (const col = colDroplets.length; col < numCols; ++col) {
+    if (nextNumCols > colDroplets.length) {
+      for (const col = colDroplets.length; col < nextNumCols; ++col) {
         // make two droplets per row that start in random positions
         colDroplets.push([makeDroplet(col), makeDroplet(col)]);
       }
     } else {
-      colDroplets.splice(numCols, colDroplets.length - numCols);
+      colDroplets.splice(nextNumCols, colDroplets.length - nextNumCols);
     }
   }
 
   function writeAt(row, col, str, color) {
     // Only output if in viewport
-    if (row >= 0 && row < numRows && col >= 0 && col < numCols) {
+    if (row >= 0 && row < nextNumRows && col >= 0 && col < nextNumCols) {
       if (transpose) {
         [col, row] = [row, col];
       }
@@ -311,7 +312,7 @@ function MatrixRain(opts) {
           droplet.curRow++;
         }
 
-        if (curRow - height > numRows) {
+        if (curRow - height > nextNumRows) {
           // reset droplet
           Object.assign(droplet, makeDroplet(droplet.col), { curRow: 0 });
         }
