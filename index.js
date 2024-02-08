@@ -243,7 +243,9 @@ function MatrixRain(opts) {
   }
 
   function resizeDroplets() {
-    [numCols, numRows] = process.stdout.getWindowSize();
+    const windowSize = process.stdout.getWindowSize();
+    const numCols = windowSize.numCols;
+    const numRows = windowSize.numRows;
 
     if (maskConf) {
       maskConf.width = numCols;
