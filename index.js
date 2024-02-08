@@ -304,7 +304,9 @@ function MatrixRain(opts) {
 
     colDroplets.forEach((droplet)=> {
       droplets.forEach((droplet)=>{
-        const { curRow, col: curCol, height } = droplet;
+        const curRow = droplet.curRow;
+        const curCol = droplet.col;
+        const height = droplet.height;
         droplet.alive++;
 
         if (droplet.alive % droplet.speed === 0) {
