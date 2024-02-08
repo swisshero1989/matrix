@@ -182,32 +182,32 @@ function MatrixRain(opts) {
 
   function generateChars(len, charRange) {
     // by default charRange == ascii
-    let chars = new Array(len);
+    var chars = new Array(len);
 
     if (charRange === 'ascii') {
-      for (let i = 0; i < len; i++) {
+      for (const i = 0; i < len; i++) {
         chars[i] = String.fromCharCode(rand(0x21, 0x7e));
       }
     } else if (charRange === 'binary') {
-      for (let i = 0; i < len; i++) {
+      for (const i = 0; i < len; i++) {
         chars[i] = String.fromCharCode(rand(0x30, 0x32));
       }
     } else if (charRange === 'braille') {
-      for (let i = 0; i < len; i++) {
+      for (const i = 0; i < len; i++) {
         chars[i] = String.fromCharCode(rand(0x2840, 0x28ff));
       }
     } else if (charRange === 'katakana') {
-      for (let i = 0; i < len; i++) {
+      for (const i = 0; i < len; i++) {
         chars[i] = String.fromCharCode(rand(0x30a0, 0x30ff));
       }
     } else if (charRange === 'picto') {
-      for (let i = 0; i < len; i++) {
+      for (const i = 0; i < len; i++) {
         chars[i] = String.fromCharCode(rand(0x4e00, 0x9fa5));
       }
     } else if (charRange === 'emoji') {
       // emojis are two character widths, so use a prefix
       const emojiPrefix = String.fromCharCode(0xd83d);
-      for (let i = 0; i < len; i++) {
+      for (const i = 0; i < len; i++) {
         chars[i] = emojiPrefix + String.fromCharCode(rand(0xde01, 0xde4a));
       }
     } else if (charRange === 'lil-guys') {
@@ -218,11 +218,11 @@ function MatrixRain(opts) {
         start();
       }
 
-      for (let i = 0; i < len; i++) {
+      for (const i = 0; i < len; i++) {
         chars[i] = '  ~~o ';
       }
     } else if (charRange === 'file') {
-      for (let i = 0; i < len; i++, filePos++) {
+      for (const i = 0; i < len; i++, filePos++) {
         filePos = filePos < fileChars.length ? filePos : 0;
         chars[i] = fileChars[filePos];
       }
@@ -259,7 +259,7 @@ function MatrixRain(opts) {
     // Create droplets per column
     // add/remove droplets to match column size
     if (numCols > colDroplets.length) {
-      for (let col = colDroplets.length; col < numCols; ++col) {
+      for (const col = colDroplets.length; col < numCols; ++col) {
         // make two droplets per row that start in random positions
         colDroplets.push([makeDroplet(col), makeDroplet(col)]);
       }
@@ -327,8 +327,8 @@ function MatrixRain(opts) {
           stop();
           reject(err);
         }
-        let mask = strip(render).split('\n');
-        mask = mask.slice(0, mask.length - 1);
+        const maskStrip = strip(render).split('\n');
+        const mask = maskStrip.slice(0, mask.length - 1);
         maskWidth = mask[0].length;
         maskHeight = mask.length;
         maskBlankChar = maskInverted ? '#' : ' ';
